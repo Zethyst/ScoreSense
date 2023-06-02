@@ -8,12 +8,24 @@ ICSEMODE.addEventListener("click", () => {
         flag = 0;
     }
 });
+let inputBox = document.getElementsByTagName("input");
+let percentBtn=document.getElementById("Percentage");
+for (i = 0; i < inputBox.length; i++) {
+    inputBox[i].onkeyup = (e) => {
+    let userEnteredValue = e.target.value;
+        if (userEnteredValue.trim() != 0) {
+            percentBtn.classList.add("active");
+        } else {
+            percentBtn.classList.remove("active");
+        }
+    }
+}
 const calc = () => {
-    const subjects = document.querySelector(".inputs");
-    var subjectslen = subjects.children.length;
+    const subjectsInput = document.querySelectorAll(".sub");
+    var subjectslen=subjectsInput.length;
     const marks = [];
-    for (i = 0; i < subjectslen; i++) {
-        marks[i] = subjects.children[i].value;
+    for (let i = 0; i < subjectslen; i++) {
+            marks[i] = subjectsInput[i].value;
     }
     let grade = "";
     var totalGrade = 0.0;
@@ -25,13 +37,13 @@ const calc = () => {
             }
         }
     }
-    
+
     for (i = 0; i < subjectslen; i++) {
         totalGrade = totalGrade + parseFloat(marks[i]);
     }
     if (flag == 1) {
         totalGrade = totalGrade - parseFloat(min);
-        subjectslen = subjectslen -1;
+        subjectslen = subjectslen - 1;
     }
     let percent = (totalGrade / subjectslen);
     if (percent <= 100 && percent >= 90) {
@@ -63,26 +75,31 @@ const calc = () => {
     }
 }
 AddSub.addEventListener("click", () => {
+
     let subjects = document.querySelector(".inputs");
     let len = subjects.children.length;
+    let divSub = document.createElement("div");
+    divSub.setAttribute("class", "subjects");
     let newSub = document.createElement("input");
     newSub.setAttribute("type", "text");
     newSub.setAttribute("placeholder", `Subject ${len + 1}`);
     newSub.setAttribute("class", "sub");
-    subjects.insertAdjacentElement("beforeend", newSub);
+    divSub.appendChild(newSub);
+    divSub.insertAdjacentHTML("beforeend", `<span class="icon" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i></span>`);
+    subjects.insertAdjacentElement("beforeend", divSub);
 });
 
 //!Getting the next input field by pressing enter
-let subjects=document.querySelectorAll(".sub");
+let subjects = document.querySelectorAll(".sub");
 for (let i = 0; i < subjects.length; i++) {
-    subjects[i].addEventListener("keyup",(event)=>{
-        if (event.keyCode===13) {
+    subjects[i].addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
             event.preventDefault();
-            if (i==subjects.length-1) {
+            if (i == subjects.length - 1) {
                 calc();
             }
-            subjects[i].nextElementSibling.focus();
+            console.log(subjects[i].nextElementSibling);
+            subjects[i+1].focus();
         }
     })
-    
 }
