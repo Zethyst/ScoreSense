@@ -67,7 +67,7 @@ input {
 input::placeholder {
   color: rgb(215, 215, 215);
   font-weight: 500;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 input:focus {
   border-bottom-color: #f59e0b;
@@ -387,13 +387,16 @@ input:checked + .slider:before {
     right: 20px;
   }
   .box {
-    width: 400px;
+    width: 420px;
   }
   .title {
     font-size: 2rem;
   }
+  .inputs{
+    max-height: 300px;
+  }
   input {
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
   .btn {
     line-height: 1;
@@ -417,6 +420,10 @@ input:checked + .slider:before {
     -webkit-transform: translateX(32px);
     -ms-transform: translateX(32px);
     transform: translateX(32px);
+  }
+  .result p {
+    font-size: 16px;
+    margin: 0px 10px 5px 0;
   }
 }
 @media screen and (max-width: 450px) {
@@ -454,7 +461,7 @@ input:checked + .slider:before {
     transform: translateX(32px);
   }
   .result p {
-    font-size: 13px;
+    font-size: 14px;
     margin: 0px 10px 5px 0;
   }
 }
