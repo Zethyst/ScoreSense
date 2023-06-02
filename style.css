@@ -42,7 +42,7 @@
   border-radius: 14px;
   height: 90%;
   margin-bottom: 1rem;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   max-height: 350px;
@@ -397,7 +397,7 @@ input:checked + .slider:before {
     max-height: 300px;
   }
   input {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .btn {
     line-height: 1;
@@ -435,7 +435,7 @@ input:checked + .slider:before {
     font-size: 1.45rem;
   }
   input {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
   }
   .btn {
     line-height: 1;
@@ -476,7 +476,7 @@ input:checked + .slider:before {
     font-size: 1.45rem;
   }
   input {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
   .btn {
     line-height: 1;
