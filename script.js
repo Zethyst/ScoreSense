@@ -9,10 +9,10 @@ ICSEMODE.addEventListener("click", () => {
     }
 });
 let inputBox = document.getElementsByTagName("input");
-let percentBtn=document.getElementById("Percentage");
+let percentBtn = document.getElementById("Percentage");
 for (i = 0; i < inputBox.length; i++) {
     inputBox[i].onkeyup = (e) => {
-    let userEnteredValue = e.target.value;
+        let userEnteredValue = e.target.value;
         if (userEnteredValue.trim() != 0) {
             percentBtn.classList.add("active");
         } else {
@@ -22,10 +22,14 @@ for (i = 0; i < inputBox.length; i++) {
 }
 const calc = () => {
     const subjectsInput = document.querySelectorAll(".sub");
-    var subjectslen=subjectsInput.length;
+    var subjectslen = subjectsInput.length;
     const marks = [];
+    var invalid_flag = 0;
     for (let i = 0; i < subjectslen; i++) {
-            marks[i] = subjectsInput[i].value;
+        marks[i] = subjectsInput[i].value;
+        if (marks[i] > 100) {
+            invalid_flag = 1;
+        }
     }
     let grade = "";
     var totalGrade = 0.0;
@@ -66,12 +70,15 @@ const calc = () => {
     else {
         grade = 'F';
     }
-
-    if (percent >= 39.5) {
-        document.getElementById('result').innerHTML = `Total Marks Out of ${subjectslen * 100} : ${totalGrade}<br/> Percentage : ${Math.trunc(percent)}% <br/> Grade : ${grade} <span style="color:green ;">(You are Pass)</span> `
-    }
-    else {
-        document.getElementById('result').innerHTML = `Total Marks Out of ${subjectslen * 100} :  ${totalGrade} <br/> Percentage : ${Math.trunc(percent)}% <br/> Grade : ${grade} <span style="color:#e41919;">(You are Fail)</span> `
+    if (invalid_flag == 1) {
+        document.getElementById('result').innerHTML = `<span style="color:#1c99fe">INVALID DATA ENTRY.<br/><i style="font-size:12px">I didn't know a grading system exists where marks are greater than 100?!</i></span>`
+    } else {
+        if (percent >= 39.5) {
+            document.getElementById('result').innerHTML = `Total Marks Out of ${subjectslen * 100} : ${totalGrade}<br/> Percentage : ${Math.trunc(percent)}% <br/> Grade : ${grade} <span style="color:green ;">(You are Pass)</span> `
+        }
+        else {
+            document.getElementById('result').innerHTML = `Total Marks Out of ${subjectslen * 100} :  ${totalGrade} <br/> Percentage : ${Math.trunc(percent)}% <br/> Grade : ${grade} <span style="color:#e41919;">(You are Fail)</span> `
+        }
     }
 }
 AddSub.addEventListener("click", () => {
@@ -99,7 +106,7 @@ for (let i = 0; i < subjects.length; i++) {
                 calc();
             }
             console.log(subjects[i].nextElementSibling);
-            subjects[i+1].focus();
+            subjects[i + 1].focus();
         }
     })
 }
