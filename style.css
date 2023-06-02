@@ -42,6 +42,7 @@
   border-radius: 14px;
   height: 90%;
   margin-bottom: 1rem;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   max-height: 350px;
@@ -83,7 +84,7 @@ input:focus {
 .subjects .icon {
   position: absolute;
   /* right: 16px; */
-  right: -45px;
+  right: -65px;
   bottom: 15px;
   background: #dd4230;
   width: 45px;
@@ -390,13 +391,13 @@ input:checked + .slider:before {
     width: 420px;
   }
   .title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .inputs{
     max-height: 300px;
   }
   input {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .btn {
     line-height: 1;
@@ -452,8 +453,8 @@ input:checked + .slider:before {
     font-size: 13px;
   }
   .slider::before {
-    height: 20px;
-    width: 20px;
+    height: 21px;
+    width: 21px;
   }
   input:checked + .slider:before {
     -webkit-transform: translateX(32px);
