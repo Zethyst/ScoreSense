@@ -36,7 +36,7 @@ const calc = () => {
     var min = marks[0];
     if (flag == 1) {
         for (i = 0; i < subjectslen; i++) {
-            if (min > marks[i]) {
+            if (Number.parseInt(min) > Number.parseInt(marks[i])) {
                 min = marks[i];
             }
         }
