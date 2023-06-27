@@ -2,7 +2,7 @@
 
 <p>ScoreSense is an interactive web application designed to help users calculate their percentage based on the marks scored in various subjects or exams. Every aspect has been meticulously crafted to create a beautiful and pleasant user interface, making your calculation journey a delightful one. The sleek and modern design elements blend harmoniously, offering a seamless and intuitive user experience.</p>
 
-[Visit Now](https://password-generator-zethyst.vercel.app/) 🚀
+[Visit Now](https://score-sense-zethyst.vercel.app/) 🚀
 
 ## 🖥️ Tech Stack
 **Frontend:**
